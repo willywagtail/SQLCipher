@@ -18,8 +18,7 @@ let package = Package(
             name: "SQLCipher",
             dependencies: [],
             cSettings: [
-                .define("SQLCIPHER_CRYPTO_CC", to: "1"),
-//                .define("SQLITE_HAS_CODEC", to: "1"),
+                .define("SQLITE_HAS_CODEC", to: "1"),
                 .define("SQLITE_TEMP_STORE", to: "2"),
                 .define("SQLITE_THREADSAFE", to: "1"),
                 .define("SQLITE_EXTRA_INIT", to: "sqlcipher_extra_init"),
