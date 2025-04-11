@@ -4,32 +4,34 @@
 import PackageDescription
 
 let package = Package(
-    name: "SQLCipherPackage",
+    name: "SQLCipher",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "SQLCipherPackage",
-            targets: ["SQLCipherPackage"]),
+            name: "SQLCipher",
+            targets: ["SQLCipher"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SQLCipherPackage",
+            name: "SQLCipher",
             dependencies: [],
             cSettings: [
-                .define("SQLITE_HAS_CODEC", to: "1"),
-                .define("SQLITE_TEMP_STORE", to: "3"),
-                .define("SQLCIPHER_CRYPTO_CC", to: nil),
-                .define("NODEBUG", to: "1"),
+                .define("SQLCIPHER_CRYPTO_CC", to: "1"),
+//                .define("SQLITE_HAS_CODEC", to: "1"),
+                .define("SQLITE_TEMP_STORE", to: "2"),
+                .define("SQLITE_THREADSAFE", to: "1"),
+                .define("SQLITE_EXTRA_INIT", to: "sqlcipher_extra_init"),
+                .define("SQLITE_EXTRA_SHUTDOWN", to: "sqlcipher_extra_shutdown"),
             ],
             linkerSettings: [
                 .linkedFramework("Foundation"),
                 .linkedFramework("Security"),
             ]),
         .testTarget(
-            name: "SQLCipherPackageTests",
-            dependencies: ["SQLCipherPackage"]
+            name: "SQLCipherTests",
+            dependencies: ["SQLCipher"]
         ),
     ]
 )
