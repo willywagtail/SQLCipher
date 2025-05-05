@@ -1,0 +1,3 @@
+[submodule "Dependencies/GRDB"]
+	path = Dependencies/GRDB
+	url = https://github.com/groue/GRDB.swift.git
