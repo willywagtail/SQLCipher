@@ -20,6 +20,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "SQLCipher",
+            publicHeadersPath: "include",
             cSettings: [
                 .define("SQLITE_HAS_CODEC", to: "1"),
                 .define("SQLCIPHER_CRYPTO_CC", to: nil),
